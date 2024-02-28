@@ -5,3 +5,7 @@ Waterfall emphasizes detailed documentation at every stage. For a solo developer
 The PhysiOnline project, following the Waterfall methodology, guarantees a structured and predictable development process, crucial for a single developer in the healthcare field. With clear requirements and a phased approach, this methodology provides a solid framework for the successful creation of a secure and easy-to-use virtual physical therapy platform.
 
 
+Installation
+py -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
