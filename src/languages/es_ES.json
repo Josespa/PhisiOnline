@@ -1,0 +1,12 @@
+{
+    "welcome": "Bienvenido",
+    "dashboard": "Inicio",
+    "appointments": "Citas",
+    "exercices":"Ejercicios",
+    "users": "Usuarios",
+    "settings": "Configuracion",
+    "notification": "Notificacion" ,
+    "profile": "Mi perfil",
+    "logout": "Salir"
+}
+  

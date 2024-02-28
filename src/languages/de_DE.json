@@ -1,0 +1,11 @@
+{
+    "welcome": "Welcome",
+    "dashboard": "Dashboard",
+    "appointments": "Appointments",
+    "exercices":"Exercices",
+    "users": "Users",
+    "settings": "Settings",
+    "notification": "Notification" ,
+    "profile": "My profile",
+    "logout": "Logout"
+  }
