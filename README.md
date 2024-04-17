@@ -78,6 +78,7 @@ Go to the _init_.py file in the source code, it contains the configuration for t
 Change 
 
 - app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
+  
 To
 
 - app.config["SQLALCHEMY_DATABASE_URI"] = Config.connection_string_config
