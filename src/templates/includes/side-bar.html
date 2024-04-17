@@ -1,0 +1,59 @@
+<div class="sidebar pe-4 pb-3">
+  <nav class="navbar bg-light navbar-light">
+      <a href="{{ url_for('home') }}" class="navbar-brand mx-4 mb-3">
+          <h3 class="text-primary">PhysiOnline</h3>
+      </a>
+      <div class="d-flex align-items-center ms-4 mb-4">
+          <div class="ms-3"> 
+            
+            <h6 class="mb-0">{{ welcome }} </h6>
+            <span class="user">{{ session['username'] }}</span>
+            
+          </div>
+      </div>
+      <div class="navbar-nav w-100">
+          <a href="{{ url_for('home') }}" class="nav-item nav-link {% if home_menu %}active{% endif %}"><i class="fa fa-tachometer-alt me-2"></i>{{ dashboard }}</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle {% if listappointments %}active{% endif %}" data-bs-toggle="dropdown"><i class="bi bi-clipboard2-heart-fill"></i>{{ appointments }}</a>
+            <div class="dropdown-menu bg-transparent border-0">
+              <a href="{{ url_for('listappointments', type = 'booked') }}" class="dropdown-item {% if filter_appointments %}active{% endif %}"></i>{{ booked }}</a>
+              <a href="{{ url_for('listappointments', type = 'all') }}" class="dropdown-item {% if all_appointments %}active{% endif %}"></i>{{ all }}</a>
+            </div>
+          </div>
+          {% if session['user_type'] == 'Physiotherapist' %}
+            <a href="{{ url_for('listusers', type='patients') }}" class="nav-item nav-link {% if list_patients %}active{% endif %}"><i class="bi bi-people"></i>{{ my_patients }}</a>
+          {% endif %}
+          {% if session['user_type'] == 'Admin' %}
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle {% if listusers %}active{% endif %}" data-bs-toggle="dropdown"><i class="bi bi-people"></i>{{ users }}</a>
+            <div class="dropdown-menu bg-transparent border-0">
+              <a href="{{ url_for('listusers', type='patients') }}" class="dropdown-item {% if list_patients %}active{% endif %}">{{ my_patients }}</a>
+              <a href="{{ url_for('listusers', type='physiotherapists') }}" class="dropdown-item {% if list_physios %}active{% endif %}">{{ physiotherapists }}</a>
+            </div>
+          </div>
+          {% endif %}
+          {% if session['user_type'] != 'Patient' %}
+            <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle {% if listexercices %}active{% endif %}" data-bs-toggle="dropdown"><i class="bi bi-person-arms-up"></i>{{ exercises }}</a>
+              <div class="dropdown-menu bg-transparent border-0">
+                  <a href="{{ url_for('Extensionexercises') }}" class="dropdown-item {% if Extension %}active{% endif %}">{{ extension }} {{ exercises }}</a>
+                  <a href="{{ url_for('Flexionexercises') }}" class="dropdown-item {% if Flexion %}active{% endif %}">{{ flexion }} {{ exercises }}</a>
+              </div>
+            </div>
+          {% endif %}
+          {% if session['user_type'] == 'Physiotherapist' %}
+            <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle {% if timeoff_sidebar %}active{% endif %}" data-bs-toggle="dropdown"><i class="bi bi-calendar2-x-fill"></i>{{ time_off }}</a>
+              <div class="dropdown-menu bg-transparent border-0">
+                  <a href="{{ url_for('dayoff') }}" class="dropdown-item {% if dayoff_sidebar %}active{% endif %}">{{ day_off }}</a>
+                  <a href="{{ url_for('timeoff') }}" class="dropdown-item {% if timeoff_dropmenu %}active{% endif %}">{{ time_off }}</a>
+              </div>
+            </div>
+          {% endif %}
+          {% if session['user_type'] == 'Patient' %}
+            <a href="{{ url_for('mytraining') }}" class="nav-item nav-link {% if listusers %}active{% endif %}"><i class="bi bi-person-arms-up"></i>{{ my_training }}</a>          
+            <a href="{{ url_for('rate_us') }}" class="nav-item nav-link {% if rate_byuser_sidebar %}active{% endif %}"><i class="bi bi-person-hearts"></i>{{ rate_us }}</a>
+            {% endif %}
+        </div>
+  </nav>
+</div>
