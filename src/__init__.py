@@ -13,10 +13,10 @@ app.config.from_object(Config)
 app.config['UPLOAD_FOLDER'] = Config.UPLOAD_FOLDER
 
 #DB local
-app.config["SQLALCHEMY_DATABASE_URI"] = Config.connection_string_config
+#app.config["SQLALCHEMY_DATABASE_URI"] = Config.connection_string_config
 
 #run in docker
-#app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
 
 # initialize the app with Flask-SQLAlchemy
 db.init_app(app)
